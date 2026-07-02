@@ -27,7 +27,7 @@ export async function readContract(functionName: string, args: any[] = []) {
 }
 
 // Write client from an injected EIP-1193 provider (Privy wallet)
-export function makeWalletClient(provider: any, address: string) {
+export function makeWalletClient(provider: any, address: `0x${string}`) {
   return createClient({ chain: testnetBradbury, account: address, provider });
 }
 

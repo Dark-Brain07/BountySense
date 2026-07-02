@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           logo: undefined,
           walletList: ["metamask", "wallet_connect", "rabby_wallet", "coinbase_wallet"],
         },
-        embeddedWallets: { createOnLogin: "users-without-wallets" },
+        embeddedWallets: { createOnLogin: "users-without-wallets" as any },
       }}
     >
       <App />
