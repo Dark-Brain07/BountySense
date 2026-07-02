@@ -146,6 +146,29 @@ export default function BountyDetail() {
                 {submitting ? 'Submitting...' : (!authenticated ? 'Connect Wallet' : 'Submit Proof')}
               </button>
             </form>
+          ) : bounty.status === 'EVALUATING' ? (
+            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+              <Loader2 size={48} className="animate-spin" color="var(--secondary)" style={{ margin: '0 auto 1rem auto' }} />
+              <p style={{ marginBottom: '1rem' }}>The AI is evaluating the submission.</p>
+              <button 
+                onClick={async () => {
+                  try {
+                    const activeWallet = wallets[0];
+                    if (!activeWallet) return login();
+                    const provider = await activeWallet.getEthereumProvider();
+                    const client = makeWalletClient(provider, activeWallet.address as `0x${string}`);
+                    await writeContract(client, 'evaluate_submission', [id]);
+                    alert("Evaluation triggered! Wait for the network to process it.");
+                  } catch (e: any) {
+                    alert("Error triggering evaluation: " + e.message);
+                  }
+                }}
+                className="btn btn-outline"
+                style={{ width: '100%' }}
+              >
+                Trigger AI Consensus Manually
+              </button>
+            </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
               <AlertCircle size={48} color="var(--text-muted)" style={{ margin: '0 auto 1rem auto' }} />
