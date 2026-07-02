@@ -45,7 +45,7 @@ export default function BountyDetail() {
     try {
       const activeWallet = wallets[0];
       const provider = await activeWallet.getEthereumProvider();
-      const client = makeWalletClient(provider, activeWallet.address);
+      const client = makeWalletClient(provider, activeWallet.address as `0x${string}`);
       
       await writeContract(client, 'submit_proof', [id, url]);
       alert("Submission transaction sent! Waiting for confirmation...");

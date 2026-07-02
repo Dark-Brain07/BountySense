@@ -28,7 +28,7 @@ export default function CreateBounty() {
     try {
       const activeWallet = wallets[0];
       const provider = await activeWallet.getEthereumProvider();
-      const client = makeWalletClient(provider, activeWallet.address);
+      const client = makeWalletClient(provider, activeWallet.address as `0x${string}`);
       
       const amountAtto = BigInt(Math.floor(parseFloat(formData.amount) * 1e18));
       
