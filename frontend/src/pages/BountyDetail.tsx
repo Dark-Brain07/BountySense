@@ -169,6 +169,34 @@ export default function BountyDetail() {
                 Trigger AI Consensus Manually
               </button>
             </div>
+          ) : bounty.status === 'COMPLETED' ? (
+            <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+              <CheckCircle2 size={48} color="var(--primary)" style={{ margin: '0 auto 1rem auto' }} />
+              <p style={{ marginBottom: '1rem' }}>Task accepted! Escrow is ready to be claimed.</p>
+              <button 
+                onClick={async () => {
+                  try {
+                    const activeWallet = wallets[0];
+                    if (!activeWallet) return login();
+                    const provider = await activeWallet.getEthereumProvider();
+                    const client = makeWalletClient(provider, activeWallet.address as `0x${string}`);
+                    setSubmitting(true);
+                    await writeContract(client, 'claim_bounty', [id]);
+                    alert("Bounty claimed successfully!");
+                  } catch (e: any) {
+                    alert("Error claiming bounty: " + e.message);
+                  } finally {
+                    setSubmitting(false);
+                  }
+                }}
+                className="btn btn-primary"
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+                disabled={submitting}
+              >
+                {submitting ? <Loader2 size={18} className="animate-spin" /> : <CheckCircle2 size={18} />}
+                {submitting ? 'Claiming...' : 'Claim Bounty'}
+              </button>
+            </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '2rem 0' }}>
               <AlertCircle size={48} color="var(--text-muted)" style={{ margin: '0 auto 1rem auto' }} />

@@ -2,14 +2,14 @@
 
 ### Decentralized Qualitative Bounties on GenLayer
 
-BountySense is a decentralized bounty platform that uses GenLayer's AI consensus to automatically evaluate and pay out subjective, natural-language tasks. Unlike traditional smart contracts that require a centralized judge or deterministic oracles, BountySense allows creators to lock GEN tokens behind a natural-language description (e.g., "Write a comprehensive tutorial on using GenLayer with React"). Hunters submit a URL as proof of their work, and GenLayer validators use an LLM to evaluate if the submission meets the criteria. If consensus is reached, the bounty is paid out automatically.
+BountySense is a decentralized bounty platform that uses GenLayer's AI consensus to evaluate subjective, natural-language tasks. Unlike traditional smart contracts that require a centralized judge or deterministic oracles, BountySense allows creators to lock GEN tokens behind a natural-language description (e.g., "Write a comprehensive tutorial on using GenLayer with React"). Hunters submit a URL as proof of their work, and GenLayer validators use an LLM to evaluate if the submission meets the criteria. If consensus is reached and the submission is approved, the hunter can claim the payout from the escrow.
 
 ## How it works
 
 1. **Create a Bounty**: A creator locks GEN tokens and defines a subjective task in natural language.
 2. **Submit Proof**: A hunter completes the task and submits a public URL (e.g., a GitHub repository, a blog post, or a live demo).
 3. **AI Consensus Evaluation**: GenLayer validators fetch the submitted URL and use an LLM to evaluate if the work strictly meets the task description.
-4. **Settlement**: If the consensus determines the task was successfully completed, the locked GEN is transferred to the hunter. If rejected, the bounty remains open for other attempts.
+4. **Settlement**: If the consensus determines the task was successfully completed, the hunter can claim the locked GEN reward. If rejected, the bounty remains open for other attempts.
 
 ## Project Structure
 

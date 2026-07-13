@@ -6,7 +6,7 @@ BountySense — Decentralized Qualitative Bounties on GenLayer.
 An intelligent contract that allows creators to lock GEN tokens as a bounty for
 a subjective, natural-language task. Hunters submit their work (as a URL).
 GenLayer's AI-validator consensus evaluates the submission against the task 
-description, and if approved, automatically releases the bounty to the hunter.
+description, and if approved, allows the hunter to claim the bounty.
 """
 
 from genlayer import *

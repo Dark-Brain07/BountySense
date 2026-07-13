@@ -1,4 +1,5 @@
 {
+  "name": "bountysense-dapp",
   "rewrites": [
     {
       "source": "/(.*)",
