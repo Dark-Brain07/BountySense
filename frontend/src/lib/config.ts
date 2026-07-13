@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0xa0f17c9d25eEC4FA04eA8372B2aa6eA9f535F6b1";
+export const CONTRACT_ADDRESS = "0xB801c3721759c9Bb9Aae12103d106A1A46709F05";
 export const PRIVY_APP_ID = "cmr2v6yi900640cjunvb4r3ui";
 
 export const NETWORK = {
