@@ -65,10 +65,10 @@ export default function CreateBounty() {
           </div>
 
           <div className="input-group">
-            <label className="input-label">Task Description</label>
+            <label className="input-label">Project Scope & Code (GitHub URL or Contract Code)</label>
             <textarea 
               className="input-field" 
-              placeholder="Describe what needs to be done. The AI will evaluate submissions against this exact description." 
+              placeholder="Paste your smart contract code or GitHub link here. The AI Auditor will evaluate bug reports against this scope." 
               rows={5}
               required
               value={formData.description}

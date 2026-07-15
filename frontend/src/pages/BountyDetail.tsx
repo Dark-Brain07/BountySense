@@ -81,7 +81,7 @@ export default function BountyDetail() {
 
         <div className="glass-card" style={{ marginBottom: '2rem' }}>
           <h3 style={{ color: 'var(--text-muted)', fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1rem' }}>
-            Task Description
+            Project Scope & Code
           </h3>
           <p style={{ fontSize: '1.1rem', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>
             {bounty.description}
@@ -131,11 +131,11 @@ export default function BountyDetail() {
           {bounty.status === 'OPEN' ? (
             <form onSubmit={handleSubmit}>
               <div className="input-group">
-                <label className="input-label">Submit your work (URL)</label>
+                <label className="input-label">Bug Report / Exploit Proof URL</label>
                 <input 
                   type="url" 
                   className="input-field" 
-                  placeholder="https://github.com/..." 
+                  placeholder="e.g. https://gist.github.com/hunter/report (Must be plain-text or JSON)" 
                   required
                   value={url}
                   onChange={e => setUrl(e.target.value)}
