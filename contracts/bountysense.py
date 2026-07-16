@@ -243,6 +243,7 @@ class BountySense(gl.Contract):
         bounty.status = "CLOSED"
         
         if amount > 0:
+            gl.get_contract_at(hunter).emit_transfer(value=u256(amount))
             bounty.last_summary += f" | BOUNTY AWARDED: {amount} attoGEN claimed by {hunter.as_hex}."
 
         return {
@@ -271,6 +272,7 @@ class BountySense(gl.Contract):
         bounty.last_summary = "Bounty cancelled and refunded"
 
         if amount > 0:
+            gl.get_contract_at(creator).emit_transfer(value=u256(amount))
             bounty.last_summary += f" | REFUND CLAIMED: {amount} attoGEN returned to {creator.as_hex}."
 
         return {
